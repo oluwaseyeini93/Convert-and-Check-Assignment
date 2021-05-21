@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert</title>
+</head>
+<body>
+    <script>
+        const convertFahrToCelsius = (f => {
+            const c = (f - 32) * 5/9;
+            if (typeof (f) === 'number') {
+                return c;
+            };
+
+            if (typeof (f)=== 'string' || typeof (f) !=='number') {
+                return `${f} is not a valid number but a/an ${typeof(f)}.`
+            };
+
+            if (typeof (f)=== 'object' ) {
+                return `{"temp": 0} is not a valid number but a/an object.`
+            }
+
+            if (!Array.isArray (f)) {
+                return `${[1,2,3]} is not a valid number but a/an array.`
+            }
+
+        });
+
+        console.log(convertFahrToCelsius([1,2,3]));
+
+
+        const array = [];
+        for (let i=1; i<40; i++){
+            array.push(i);
+        };
+        // console.log(array);
+        const checkYuGiOh = array.map(function(item){
+            if(item % 2 === 0 && item % 3 === 0 && item % 5 ===0){
+                return "yu-gi-oh";
+            }
+            else if (item % 2 === 0 && item % 3 === 0){
+                return "yu-gi";
+            }
+            else if (item % 2 === 0 && item % 5 === 0){
+                return "yu-oh";
+            }
+            else if (item % 3 === 0 && item % 5 === 0){
+                return "gi-oh";
+            }
+
+            else if (item % 2 === 0){
+                return "yu";
+            }
+            else if (item % 3 === 0){
+                return "gi";
+            }
+            else if (item % 5 === 0){
+                return "oh";
+            }
+            else{
+                return item;
+            }
+        });
+
+        console.log(checkYuGiOh);
+    </script>
+</body>
+</html>
